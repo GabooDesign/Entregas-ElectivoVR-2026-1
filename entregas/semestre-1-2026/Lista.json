@@ -1,0 +1,81 @@
+{
+  "proyectos": [
+    {
+      "id": 1,
+      "title": "Taberna Cyberpunk",
+      "author": "Catalina Aglony",
+      "image": "./entregas/semestre-1-2026/1_CatalinaAglony/image.jpg",
+      "sound": "./entregas/semestre-1-2026/1_CatalinaAglony/sound.mp3"
+    },
+    {
+      "id": 2,
+      "title": "La Cabaña de Don Gaspar",
+      "author": "Benjamín Antivilo",
+      "image": "./entregas/semestre-1-2026/2_BenjaminAntivilo/image.jpg",
+      "sound": "./entregas/semestre-1-2026/2_BenjaminAntivilo/sound.mp3"
+    },
+    {
+      "id": 3,
+      "title": "La habitación de Lena",
+      "author": "Cristobal Cedano",
+      "image": "./entregas/semestre-1-2026/3_CristobalCedano/image.jpg",
+      "sound": "./entregas/semestre-1-2026/3_CristobalCedano/sound.mp3"
+    },
+    {
+      "id": 4,
+      "title": "El refugio del cazador Renzo",
+      "author": "Eduardo Cerda",
+      "image": "./entregas/semestre-1-2026/4_EduardoCerda/image.jpg",
+      "sound": "./entregas/semestre-1-2026/4_EduardoCerda/sound.mp3"
+    },
+    {
+      "id": 5,
+      "title": "Un habitáculo Frutiger Aero",
+      "author": "Francisco Hidalgo",
+      "image": "./entregas/semestre-1-2026/5_FranciscoHidalgo/image.jpg",
+      "sound": "./entregas/semestre-1-2026/5_FranciscoHidalgo/sound.mp3"
+    },
+    {
+      "id": 6,
+      "title": "El náufragio de la unidad 04",
+      "author": "Bastián Ovalle",
+      "image": "./entregas/semestre-1-2026/6_BastianOvalle/image.jpg",
+      "sound": "./entregas/semestre-1-2026/6_BastianOvalle/sound.mp3"
+    },
+    {
+      "id": 7,
+      "title": "El taller del joyero",
+      "author": "Antonia Salinas",
+      "image": "./entregas/semestre-1-2026/7_AntoniaSalinas/image.jpg",
+      "sound": "./entregas/semestre-1-2026/7_AntoniaSalinas/sound.mp3"
+    },
+    {
+      "id": 8,
+      "title": "El hábitat de Coralina",
+      "author": "Micaela Solis",
+      "image": "./entregas/semestre-1-2026/8_MicaelaSolis/image.jpg",
+      "sound": "./entregas/semestre-1-2026/8_MicaelaSolis/sound.mp3"
+    },
+    {
+      "id": 9,
+      "title": "El habitáculo del Hada Robótica",
+      "author": "Renata Ramirez",
+      "image": "./entregas/semestre-1-2026/9_RenataRamirez/image.jpg",
+      "sound": "./entregas/semestre-1-2026/9_RenataRamirez/sound.mp3"
+    },
+    {
+      "id": 10,
+      "title": "La tienda de Jack",
+      "author": "Gabriela Vargas",
+      "image": "./entregas/semestre-1-2026/10_GabrielaVargas/image.jpg",
+      "sound": "./entregas/semestre-1-2026/10_GabrielaVargas/sound.mp3"
+    },
+        {
+      "id": 11,
+      "title": "Conversation pit place",
+      "author": "Benjamín Wanner",
+      "image": "./entregas/semestre-1-2026/11_BenjaminWanner/image.jpg",
+      "sound": "./entregas/semestre-1-2026/11_BenjaminWanner/sound.mp3"
+    }
+  ]
+}

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Entregas Electivo VR</title>
+<script src="https://aframe.io/releases/1.8.0/aframe.min.js"></script>
+<style>
+
+body{
+
+    margin:0;
+    overflow:hidden;
+
+}
+
+#overlay{
+
+    position:fixed;
+    inset:0;
+
+    background:black;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    z-index:9999;
+
+}
+
+button{
+
+    padding:20px 40px;
+    font-size:20px;
+
+}
+
+</style>
+
+<script src="https://unpkg.com/aframe-troika-text/dist/aframe-troika-text.min.js"></script>
+</head>
+
+<body>
+
+<div id="overlay">
+
+<button id="startButton">
+Comenzar experiencia VR
+</button>
+
+</div>
+
+<a-assets>
+    <!-- Font -->
+    <a-asset-item
+        id="inter"
+        src="./fonts/Inter-Regular.json">
+    </a-asset-item>
+
+</a-assets>
+
+<a-scene>
+
+<a-assets>
+
+</a-assets>
+
+
+    <!-- Panorama -->
+    <a-sky id="sky"></a-sky>
+
+    <!-- Cámara -->
+
+<a-entity camera look-controls>
+    <a-entity
+        id="cursor"
+        position="0 0 -1"
+        geometry="primitive:circle;
+            radius:0.008"
+        material="color:white;
+            shader:flat"
+        cursor="fuse:true;
+            fuseTimeout:1200"
+        raycaster="objects:.clickable;
+            far:10">
+    </a-entity>
+</a-entity>
+
+<a-entity id="infoPanel" position="0 -1 -2">
+
+    <!-- Fondo -->
+    <a-plane
+        width="3"
+        height="1.2"
+        color="white"
+        opacity="0.25">
+    </a-plane>
+
+    <!-- Botón -->
+
+    <a-plane
+        id="btnNext"
+        class="clickable"
+        width="1.2"
+        height="0.25"
+        color="black"
+        position="0 0.4 0.01">
+
+        <a-entity
+    position="0 0 0.01"
+    troika-text="
+        value:Siguiente;
+        font="#inter"
+        fontSize:0.08;
+        color:white;
+        align:center;">
+</a-entity>
+    </a-plane>
+
+    <!-- Nombre -->
+
+    <a-entity
+    id="title"
+    position="0 0 0.01"
+    troika-text="
+        value: Nombre obra;
+        font="#inter"
+        fontSize:0.12;
+        color:black;
+        align:center;">
+    </a-entity>
+
+    <!-- Autor -->
+
+    <a-entity
+    id="author"
+    position="0 -0.35 0.01"
+    troika-text="
+        value: Autor;
+        font="#inter"
+        fontSize:0.09;
+        color:black;
+        align:center;">
+</a-entity>
+</a-entity>
+
+</a-scene>
+
+<script>
+
+const overlay = document.getElementById("overlay");
+const startButton = document.getElementById("startButton");
+
+const sky = document.getElementById("sky");
+
+const title = document.getElementById("title");
+const author = document.getElementById("author");
+
+const btnNext = document.getElementById("btnNext");
+
+let proyectos = [];
+let proyectoActual = 0;
+
+//======================================================
+// CARGAR LISTA
+//======================================================
+
+async function cargarLista(){
+
+    const response = await fetch("./entregas/semestre-1-2026/lista.json");
+
+    const data = await response.json();
+
+    proyectos = data.proyectos;
+
+    console.log(proyectos);
+
+}
+
+//======================================================
+// CARGAR PROYECTO
+//======================================================
+
+function cargarProyecto(indice){
+
+    const proyecto = proyectos[indice];
+
+    sky.setAttribute("src", proyecto.image);
+
+title.setAttribute("troika-text", "value", proyecto.title);
+author.setAttribute("troika-text", "value", proyecto.author);
+
+}
+
+//======================================================
+// SIGUIENTE
+//======================================================
+
+btnNext.addEventListener("click",()=>{
+
+    proyectoActual++;
+
+    if(proyectoActual >= proyectos.length){
+
+        proyectoActual = 0;
+
+    }
+
+    cargarProyecto(proyectoActual);
+
+});
+
+//======================================================
+// INICIAR EXPERIENCIA
+//======================================================
+
+startButton.addEventListener("click", async ()=>{
+
+    overlay.style.display = "none";
+
+    await cargarLista();
+
+    proyectoActual = 0;
+
+    cargarProyecto(proyectoActual);
+
+});
+
+</script>
+
+</body>
+
+</html>
