@@ -51,21 +51,17 @@ Comenzar experiencia VR
 
 </div>
 
+
+
+<a-scene>
+
 <a-assets>
     <!-- Font -->
     <a-asset-item
         id="inter"
         src="./fonts/Inter-Regular.json">
     </a-asset-item>
-
 </a-assets>
-
-<a-scene>
-
-<a-assets>
-
-</a-assets>
-
 
     <!-- Panorama -->
     <a-sky id="sky"></a-sky>
@@ -85,6 +81,21 @@ Comenzar experiencia VR
         raycaster="objects:.clickable;
             far:10">
     </a-entity>
+
+    <a-plane
+    id="fade"
+    width="4"
+    height="4"
+    color="black"
+    material="
+        shader:flat;
+        transparent:true;
+        opacity:0;
+        depthTest:false;
+        depthWrite:false;"
+    position="0 0 -0.5"
+    render-order="9999">
+</a-plane>
 </a-entity>
 
 <a-entity id="infoPanel" position="0 -1 -2">
@@ -152,6 +163,8 @@ Comenzar experiencia VR
 const overlay = document.getElementById("overlay");
 const startButton = document.getElementById("startButton");
 
+const fade = document.getElementById("fade");
+
 const sky = document.getElementById("sky");
 
 const title = document.getElementById("title");
@@ -188,8 +201,34 @@ function cargarProyecto(indice){
 
     sky.setAttribute("src", proyecto.image);
 
-title.setAttribute("troika-text", "value", proyecto.title);
-author.setAttribute("troika-text", "value", proyecto.author);
+    title.setAttribute("troika-text","value",proyecto.title);
+
+    author.setAttribute("troika-text","value",proyecto.author);
+
+}
+
+async function cambiarProyecto(indice){
+
+    // Fade a negro
+    fade.removeAttribute("animation");
+
+    fade.setAttribute(
+        "animation",
+        "property: material.opacity; from:0; to:1; dur:350; easing:easeInOutQuad"
+    );
+
+    await new Promise(resolve => setTimeout(resolve,350));
+
+    // Cambiar panorama
+    cargarProyecto(indice);
+
+    // Fade desde negro
+    fade.removeAttribute("animation");
+
+    fade.setAttribute(
+        "animation",
+        "property: material.opacity; from:1; to:0; dur:500; easing:easeInOutQuad"
+    );
 
 }
 
@@ -207,7 +246,7 @@ btnNext.addEventListener("click",()=>{
 
     }
 
-    cargarProyecto(proyectoActual);
+    cambiarProyecto(proyectoActual);
 
 });
 
@@ -223,7 +262,7 @@ startButton.addEventListener("click", async ()=>{
 
     proyectoActual = 0;
 
-    cargarProyecto(proyectoActual);
+    cambiarProyecto(proyectoActual);
 
 });
 
