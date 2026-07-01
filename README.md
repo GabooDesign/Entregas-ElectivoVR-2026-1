@@ -49,7 +49,7 @@ Los modelos fueron desarrollados para experiencias inmersivas en Realidad Virtua
 
 ## 📜 Créditos
 
-Todos los modelos pertenecen a sus respectivos autores y fueron desarrollados como parte del curso de **Realidad Virtual** de la **Facultad de Arquitectura y Urbanismo, Universidad de Chile**.
+Todos los modelos pertenecen a sus respectivos autores y fueron desarrollados como parte del electivo de arquitectura y diseño de **Realidad Virtual** de la **Facultad de Arquitectura y Urbanismo, Universidad de Chile**.
 
 Este repositorio tiene fines exclusivamente académicos y de difusión del trabajo realizado durante el curso.
 
